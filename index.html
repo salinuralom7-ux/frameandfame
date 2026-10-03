@@ -46,7 +46,7 @@
   },
   "areaServed": { "@type": "State", "name": "Assam" },
   "sameAs": ["https://instagram.com/frameandfame.in_"],
-  "knowsAbout": ["Video production","Meta advertising","Social media management","Local search marketing"]
+  "knowsAbout": ["Content marketing","Performance marketing","Search engine optimisation","Website development","Graphic design","Marketing consultancy"]
 }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -398,8 +398,9 @@ p{margin:0}
 .fact i{display:block;width:34px;height:3px;background:var(--bright);margin-bottom:22px;border-radius:2px}
 
 /* ---------- services ---------- */
-.svc{display:flex;flex-direction:column;gap:12px;min-height:clamp(132px,12vw,172px);justify-content:flex-end}
-.svc h3{font-size:clamp(28px,3vw,44px);font-weight:700;font-stretch:108%;letter-spacing:-.04em;
+.svc{display:flex;flex-direction:column;gap:12px}
+.svc-n{font-family:var(--disp);font-weight:700;font-size:13px;color:var(--blue);letter-spacing:.04em;margin-bottom:10px}
+.svc h3{font-size:clamp(24px,2.4vw,36px);font-weight:700;font-stretch:108%;letter-spacing:-.04em;
   transition:color .35s;line-height:1}
 .svc:hover h3{color:var(--blue)}
 .svc p{font-size:16.5px;line-height:1.5;color:var(--dim);max-width:30ch}
@@ -657,15 +658,15 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--blue);outline-offse
     </div>
   </div>
   <div class="wrap">
-    <span class="tag rv" data-f="l">What we do</span>
-    <h2 class="rv" data-f="l" data-d="1" style="font-size:clamp(31px,5.2vw,88px);max-width:14ch">Everything between a camera and a customer.</h2>
+    <span class="tag rv" data-f="l">Our services</span>
+    <h2 class="rv" data-f="l" data-d="1" style="font-size:clamp(31px,5.2vw,88px);max-width:15ch">Everything your brand needs to grow.</h2>
     <div class="grid-3" style="margin-top:clamp(42px,4.6vw,70px)">
-      <article class="svc box rv" data-f="l"><h3>Video</h3><p>Shot at your place, or filmed by your team to our brief and direction.</p></article>
-      <article class="svc box rv" data-f="r"><h3>Meta ads</h3><p>Built and run daily on your own ad account, so the history stays yours.</p></article>
-      <article class="svc box rv" data-f="l"><h3>Social</h3><p>Posting, captions, stories. You stop thinking about it.</p></article>
-      <article class="svc box rv" data-f="r"><h3>Enquiries</h3><p>Answered while the person is still interested.</p></article>
-      <article class="svc box rv" data-f="l"><h3>Google profile</h3><p>So you appear when somebody nearby searches.</p></article>
-      <article class="svc box rv" data-f="r"><h3>Reporting</h3><p>One page a month. Two minutes to read.</p></article>
+      <article class="svc box rv" data-f="l"><span class="svc-n">01</span><h3>Content Marketing</h3><p>Videos, reels and posts built around your own people, published on a steady schedule.</p></article>
+      <article class="svc box rv" data-f="r"><span class="svc-n">02</span><h3>Performance Marketing</h3><p>Meta ads run daily on your own account, targeted to your district, measured by enquiries.</p></article>
+      <article class="svc box rv" data-f="l"><span class="svc-n">03</span><h3>SEO</h3><p>Your Google profile and website set up so nearby customers find you first.</p></article>
+      <article class="svc box rv" data-f="r"><span class="svc-n">04</span><h3>Website Building</h3><p>Fast, mobile-first websites that turn visitors into calls and WhatsApp messages.</p></article>
+      <article class="svc box rv" data-f="l"><span class="svc-n">05</span><h3>Graphic Design</h3><p>Posters, creatives, brochures and brand assets that look like one business.</p></article>
+      <article class="svc box rv" data-f="r"><span class="svc-n">06</span><h3>Marketing Advisory &amp; Consultancy</h3><p>A clear plan for where to spend, what to say and what to stop doing.</p></article>
     </div>
   </div>
 </section>
@@ -766,7 +767,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--blue);outline-offse
 (function(){
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  var words=['Video','Meta ads','Social','Enquiries','Reporting','Shoots across Assam'];
+  var words=['Content Marketing','Performance Marketing','SEO','Website Building','Graphic Design','Marketing Advisory'];
   var unit=words.map(function(w){return '<span>'+w+'</span><i></i>';}).join('');
   document.getElementById('marq').innerHTML=unit+unit;
 
