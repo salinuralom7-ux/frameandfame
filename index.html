@@ -565,19 +565,19 @@ p{margin:0}
   .facts,.steps{margin-top:30px}
   .ico{width:38px;height:38px;border-radius:11px;margin-bottom:12px}
   .ico svg{width:19px;height:19px}
-  .facts.grid-4,.svs{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .facts.grid-4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .svs{grid-template-columns:1fr;gap:8px}
   .fact h3{font-size:16.5px;margin-bottom:6px;line-height:1.12}
   .fact p{font-size:13px;line-height:1.45}
   .svs{margin-top:28px!important}
   .sv{padding:0}
-  .svs{grid-auto-flow:row dense}
-  .sv[open]{grid-column:1/-1}
-  .sv summary{padding:15px;gap:4px}
-  .sv-n{top:15px;right:15px;font-size:11px}
-  .sv h3{font-size:16.5px;line-height:1.12}
-  .sv p{font-size:13px;line-height:1.42}
-  .sv-more{margin-top:8px;font-size:12px}
-  .sv-more i{width:18px;height:18px}
+  .sv summary{display:grid;grid-template-columns:auto minmax(0,1fr) auto;column-gap:14px;row-gap:2px;align-items:center;padding:14px 14px 14px 13px}
+  .sv .ico{grid-row:span 2;margin:0}
+  .sv-n{display:none}
+  .sv h3{font-size:16.5px;line-height:1.15;grid-column:2}
+  .sv p{font-size:13px;line-height:1.4;grid-column:2}
+  .sv-more{grid-column:3;grid-row:1/span 2;margin:0;font-size:0;gap:0}
+  .sv-more i{width:28px;height:28px}
   .sv-body{padding:0 15px 16px}
   .sv-body li{font-size:13.5px}
   .tl-line{left:45px;top:40px;bottom:40px;width:3px}
