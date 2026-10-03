@@ -497,6 +497,31 @@ p{margin:0}
   padding-block:clamp(40px,5vw,70px) clamp(32px,4vw,52px);font-size:14px;color:var(--dim)}
 .foot img{height:20px;width:auto;opacity:.85}
 
+/* ---------- compact cards on phones ---------- */
+@media(max-width:659px){
+  .grid-2,.grid-3,.grid-4{gap:9px}
+  .box{padding:16px 15px;border-radius:13px}
+  .facts,.steps{margin-top:30px}
+  .facts.grid-4,#work .grid-3{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .fact i{width:22px;margin-bottom:12px}
+  .fact h3{font-size:17px;margin-bottom:6px;line-height:1.12}
+  .fact p{font-size:13.5px;line-height:1.45}
+  #work .grid-3{margin-top:30px!important}
+  .svc{gap:5px}
+  .svc-n{font-size:11.5px;margin-bottom:4px}
+  .svc h3{font-size:17px;letter-spacing:-.025em;line-height:1.12}
+  .svc p{font-size:13.5px;line-height:1.45}
+  .step{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:15px;align-items:start}
+  .step b{grid-row:span 2;font-size:34px;margin:0;min-width:48px;font-variant-numeric:tabular-nums}
+  .step h3{font-size:18px;margin:3px 0 4px}
+  .step p{font-size:14px;line-height:1.45}
+  .cost-l{margin-top:28px}
+  .cost-l div{font-size:14.5px}
+  .cost-l b{font-size:16px;margin-bottom:3px}
+  .ct-l{margin-top:30px}
+  .ct-l a{gap:4px}
+  .ct-l em{font-size:18px}
+}
 a:focus-visible,button:focus-visible{outline:2px solid var(--blue);outline-offset:4px;border-radius:5px}
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
