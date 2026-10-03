@@ -32,4 +32,4 @@ about a minute.
 
 ## Contact
 
-Salinur Alom Pramanik — salinuralom7@gmail.com
+Salinur Alom Pramanik — helloframeandfame@gmail.com
