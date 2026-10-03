@@ -497,27 +497,100 @@ p{margin:0}
   padding-block:clamp(40px,5vw,70px) clamp(32px,4vw,52px);font-size:14px;color:var(--dim)}
 .foot img{height:20px;width:auto;opacity:.85}
 
-/* ---------- compact cards on phones ---------- */
+/* ---------- premium cards ---------- */
+.box{position:relative;overflow:hidden;isolation:isolate;-webkit-tap-highlight-color:transparent}
+.box::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:0;transition:opacity .4s;
+  background:radial-gradient(260px circle at var(--mx,50%) var(--my,0%),rgba(77,139,255,.22),transparent 65%)}
+.box:hover::after,.box.lit::after{opacity:1}
+.box:active{transform:scale(.975)!important;transition-duration:.15s}
+.rip{position:absolute;z-index:0;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;pointer-events:none;
+  background:rgba(77,139,255,.35);animation:rip .7s ease-out forwards}
+@keyframes rip{to{transform:scale(40);opacity:0}}
+.rv.in.box{transition-delay:var(--sd,0s)}
+.ico{display:grid;place-items:center;width:46px;height:46px;border-radius:13px;margin-bottom:18px;flex:none;
+  background:linear-gradient(140deg,var(--blue),var(--bright) 55%,var(--royal));
+  box-shadow:0 12px 28px -12px rgba(27,79,216,.9),inset 0 1px 0 rgba(255,255,255,.35)}
+.ico svg{width:23px;height:23px;fill:none;stroke:#fff;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;
+  stroke-dasharray:80;stroke-dashoffset:80;transition:stroke-dashoffset 1.6s var(--e) .35s}
+.in .ico svg{stroke-dashoffset:0}
+.box:hover .ico{animation:wig .6s var(--e)}
+@keyframes wig{30%{transform:rotate(-8deg) scale(1.08)}60%{transform:rotate(5deg)}}
+.fact h3{margin-bottom:10px}
+.sub{margin-top:18px;font-size:15px;color:var(--dim)}
+/* services */
+.svs{align-items:start}
+.sv{padding:0}
+.sv summary{list-style:none;cursor:pointer;display:flex;flex-direction:column;gap:6px;padding:clamp(22px,2.2vw,32px);position:relative}
+.sv summary::-webkit-details-marker{display:none}
+.sv .ico{margin-bottom:12px}
+.sv-n{position:absolute;top:clamp(22px,2.2vw,32px);right:clamp(22px,2.2vw,32px);font-family:var(--disp);font-weight:700;font-size:13px;color:var(--blue);letter-spacing:.05em;opacity:.8}
+.sv h3{font-size:clamp(22px,2.1vw,30px);font-weight:700;font-stretch:106%;letter-spacing:-.035em;line-height:1.05;transition:color .3s}
+.sv p{font-size:15.5px;line-height:1.5;color:var(--dim)}
+.sv-more{margin-top:12px;display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600;color:var(--blue-2)}
+.sv-more i{width:20px;height:20px;border-radius:50%;border:1px solid rgba(127,176,255,.45);position:relative;transition:transform .45s var(--e),background .3s}
+.sv-more i::before,.sv-more i::after{content:"";position:absolute;left:50%;top:50%;width:8px;height:1.6px;background:var(--blue-2);transform:translate(-50%,-50%)}
+.sv-more i::after{transform:translate(-50%,-50%) rotate(90deg)}
+.sv[open]{border-color:var(--blue);background:linear-gradient(160deg,rgba(77,139,255,.16),rgba(255,255,255,.03) 60%)}
+.sv[open] h3{color:var(--blue-2)}
+.sv[open] .sv-more i{transform:rotate(45deg);background:rgba(77,139,255,.2)}
+.sv-body{padding:0 clamp(22px,2.2vw,32px) clamp(22px,2.2vw,32px);animation:open .55s var(--e)}
+@keyframes open{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:none}}
+.sv-body ul{list-style:none;margin:0 0 18px;padding:16px 0 0;border-top:1px solid var(--rule-d);display:grid;gap:10px}
+.sv-body li{display:flex;gap:10px;font-size:14.5px;line-height:1.4;color:var(--on-dark)}
+.sv-body li::before{content:"";flex:none;width:7px;height:7px;margin-top:6px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 4px rgba(77,139,255,.18)}
+.sv-cta{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-size:14px;font-weight:600;color:#04112E;
+  background:var(--blue);padding:11px 18px;border-radius:999px;transition:background .25s,transform .25s}
+.sv-cta:hover{background:var(--blue-2)}
+.sv-cta span{transition:transform .3s var(--e)}.sv-cta:hover span{transform:translateX(4px)}
+/* timeline steps */
+.steps{position:relative}
+.tl-line{position:absolute;z-index:0;pointer-events:none;background:var(--rule-l);border-radius:2px}
+.tl-line i{position:absolute;inset:0;border-radius:2px;background:linear-gradient(90deg,var(--blue),var(--bright));transform-origin:left;transform:scaleX(var(--p,0))}
+@media(min-width:760px){.tl-line{left:calc(clamp(24px,2.4vw,36px) + 30px);right:calc(33% - 10px);top:calc(clamp(24px,2.4vw,36px) + 30px);height:3px}}
+.step{z-index:1}
+.step b{display:grid;place-items:center;width:60px;height:60px;border-radius:50%;font-size:22px!important;letter-spacing:-.02em!important;
+  color:#fff!important;background:linear-gradient(140deg,var(--blue),var(--bright) 55%,var(--royal));margin-bottom:22px!important;
+  box-shadow:0 0 0 6px var(--paper),0 0 0 7px var(--rule-l),0 16px 30px -12px rgba(27,79,216,.9);transform:scale(.6);opacity:0!important;
+  transition:transform .8s var(--e) .25s,opacity .6s ease .25s}
+.step.in b{transform:none;opacity:1!important}
+/* cost notes */
+.chk{display:block;width:26px;height:26px;border-radius:50%;margin-bottom:14px;
+  background:var(--bright) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.3l2.3 2.2 4.7-5' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/70% no-repeat;
+  box-shadow:0 8px 18px -8px rgba(27,79,216,.9)}
+
+/* ---------- compact on phones ---------- */
 @media(max-width:659px){
-  .grid-2,.grid-3,.grid-4{gap:9px}
-  .box{padding:16px 15px;border-radius:13px}
+  .grid-2,.grid-3,.grid-4{gap:10px}
+  .box{padding:16px 15px;border-radius:14px}
   .facts,.steps{margin-top:30px}
-  .facts.grid-4,#work .grid-3{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .fact i{width:22px;margin-bottom:12px}
-  .fact h3{font-size:17px;margin-bottom:6px;line-height:1.12}
-  .fact p{font-size:13.5px;line-height:1.45}
-  #work .grid-3{margin-top:30px!important}
-  .svc{gap:5px}
-  .svc-n{font-size:11.5px;margin-bottom:4px}
-  .svc h3{font-size:17px;letter-spacing:-.025em;line-height:1.12}
-  .svc p{font-size:13.5px;line-height:1.45}
-  .step{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:15px;align-items:start}
-  .step b{grid-row:span 2;font-size:34px;margin:0;min-width:48px;font-variant-numeric:tabular-nums}
-  .step h3{font-size:18px;margin:3px 0 4px}
+  .ico{width:38px;height:38px;border-radius:11px;margin-bottom:12px}
+  .ico svg{width:19px;height:19px}
+  .facts.grid-4,.svs{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .fact h3{font-size:16.5px;margin-bottom:6px;line-height:1.12}
+  .fact p{font-size:13px;line-height:1.45}
+  .svs{margin-top:28px!important}
+  .sv{padding:0}
+  .svs{grid-auto-flow:row dense}
+  .sv[open]{grid-column:1/-1}
+  .sv summary{padding:15px;gap:4px}
+  .sv-n{top:15px;right:15px;font-size:11px}
+  .sv h3{font-size:16.5px;line-height:1.12}
+  .sv p{font-size:13px;line-height:1.42}
+  .sv-more{margin-top:8px;font-size:12px}
+  .sv-more i{width:18px;height:18px}
+  .sv-body{padding:0 15px 16px}
+  .sv-body li{font-size:13.5px}
+  .tl-line{left:45px;top:40px;bottom:40px;width:3px}
+  .tl-line i{background:linear-gradient(180deg,var(--blue),var(--bright));transform-origin:top;transform:scaleY(var(--p,0))}
+  .step{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:16px;align-items:center;background:transparent!important;border-color:transparent!important;padding:10px 0 10px 15px}
+  .step b{grid-row:span 2;width:60px;height:60px;margin:0!important;font-size:20px!important;box-shadow:0 0 0 5px var(--mist),0 16px 30px -12px rgba(27,79,216,.9)}
+  .step h3{font-size:18px;margin:0 0 3px}
   .step p{font-size:14px;line-height:1.45}
+  .step:hover{transform:none}
   .cost-l{margin-top:28px}
-  .cost-l div{font-size:14.5px}
-  .cost-l b{font-size:16px;margin-bottom:3px}
+  .cost-l .box{display:grid;grid-template-columns:auto 1fr;column-gap:14px;align-items:center;font-size:13.5px}
+  .chk{grid-row:span 2;margin:0}
+  .cost-l b{font-size:15.5px;margin-bottom:2px}
   .ct-l{margin-top:30px}
   .ct-l a{gap:4px}
   .ct-l em{font-size:18px}
@@ -620,10 +693,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--blue);outline-offse
     <p class="say-p rv" data-f="u" data-d="2">You already know which business in your town that is. It isn't a talent problem. It's a visibility problem, and visibility is the only part you can buy.</p>
 
     <div class="facts grid-4">
-      <div class="fact box rv" data-f="u"><i></i><h3>People trust faces</h3><p>We film your own team. Not posters, not templates.</p></div>
-      <div class="fact box rv" data-f="u" data-d="1"><i></i><h3>Only where you work</h3><p>Your budget reaches your districts. Nowhere else.</p></div>
-      <div class="fact box rv" data-f="u" data-d="2"><i></i><h3>Enquiries, counted</h3><p>How many came, and what each one cost. Every month.</p></div>
-      <div class="fact box rv" data-f="u" data-d="3"><i></i><h3>Every rupee shown</h3><p>What went to ads, what came back. In writing, every month.</p></div>
+      <div class="fact box rv" data-f="u"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8.5" r="4"/><path d="M4.5 20.5c1-4 4-6 7.5-6s6.5 2 7.5 6"/></svg></span><h3>People trust faces</h3><p>We film your own team. Not posters, not templates.</p></div>
+      <div class="fact box rv" data-f="u"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-6-6.5-11.2a6.5 6.5 0 0 1 13 0C18.5 15 12 21 12 21z"/><circle cx="12" cy="9.8" r="2.4"/></svg></span><h3>Only where you work</h3><p>Your budget reaches your districts. Nowhere else.</p></div>
+      <div class="fact box rv" data-f="u"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/><path d="M8.5 10.5h7"/></svg></span><h3>Enquiries, counted</h3><p>How many came, and what each one cost. Every month.</p></div>
+      <div class="fact box rv" data-f="u"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5h10M7 8.5h10M7 4.5c5 0 7.5 1.6 7.5 4s-2.5 4-7.5 4l7 7"/></svg></span><h3>Every rupee shown</h3><p>What went to ads, what came back. In writing, every month.</p></div>
     </div>
   </div>
 </section>
@@ -685,13 +758,32 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--blue);outline-offse
   <div class="wrap">
     <span class="tag rv" data-f="l">Our services</span>
     <h2 class="rv" data-f="l" data-d="1" style="font-size:clamp(31px,5.2vw,88px);max-width:15ch">Everything your brand needs to grow.</h2>
-    <div class="grid-3" style="margin-top:clamp(42px,4.6vw,70px)">
-      <article class="svc box rv" data-f="l"><span class="svc-n">01</span><h3>Content Marketing</h3><p>Videos, reels and posts built around your own people, published on a steady schedule.</p></article>
-      <article class="svc box rv" data-f="r"><span class="svc-n">02</span><h3>Performance Marketing</h3><p>Meta ads run daily on your own account, targeted to your district, measured by enquiries.</p></article>
-      <article class="svc box rv" data-f="l"><span class="svc-n">03</span><h3>SEO</h3><p>Your Google profile and website set up so nearby customers find you first.</p></article>
-      <article class="svc box rv" data-f="r"><span class="svc-n">04</span><h3>Website Building</h3><p>Fast, mobile-first websites that turn visitors into calls and WhatsApp messages.</p></article>
-      <article class="svc box rv" data-f="l"><span class="svc-n">05</span><h3>Graphic Design</h3><p>Posters, creatives, brochures and brand assets that look like one business.</p></article>
-      <article class="svc box rv" data-f="r"><span class="svc-n">06</span><h3>Marketing Advisory &amp; Consultancy</h3><p>A clear plan for where to spend, what to say and what to stop doing.</p></article>
+    <p class="sub rv" data-f="l" data-d="2">Tap any service to see what's included.</p>
+    <div class="grid-3 svs" style="margin-top:clamp(42px,4.6vw,70px)">
+      <details class="sv box rv" data-f="u">
+        <summary><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10 9.3v5.4l4.6-2.7z"/></svg></span><span class="sv-n">01</span><h3>Content Marketing</h3><p>Videos, reels and posts built around your own people.</p><span class="sv-more">What's included<i></i></span></summary>
+        <div class="sv-body"><ul><li>Scripts and direction for your team's shoots</li><li>Editing, captions and reels</li><li>Posting calendar handled for you</li></ul><a class="sv-cta" href="https://wa.me/917086269537?text=Hi%20F%26F%2C%20I%27d%20like%20to%20know%20more%20about%20Content%20Marketing." target="_blank" rel="noopener">Ask about this <span>&rarr;</span></a></div>
+      </details>
+      <details class="sv box rv" data-f="u">
+        <summary><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span><span class="sv-n">02</span><h3>Performance Marketing</h3><p>Meta ads targeted to your district, measured by enquiries.</p><span class="sv-more">What's included<i></i></span></summary>
+        <div class="sv-body"><ul><li>Campaigns on your own ad account</li><li>District-level targeting</li><li>Cost per enquiry, reported monthly</li></ul><a class="sv-cta" href="https://wa.me/917086269537?text=Hi%20F%26F%2C%20I%27d%20like%20to%20know%20more%20about%20Performance%20Marketing." target="_blank" rel="noopener">Ask about this <span>&rarr;</span></a></div>
+      </details>
+      <details class="sv box rv" data-f="u">
+        <summary><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.3-4.3"/></svg></span><span class="sv-n">03</span><h3>SEO</h3><p>Get found first when nearby customers search.</p><span class="sv-more">What's included<i></i></span></summary>
+        <div class="sv-body"><ul><li>Google Business Profile set up and kept fresh</li><li>Local keywords and reviews</li><li>On-page SEO for your website</li></ul><a class="sv-cta" href="https://wa.me/917086269537?text=Hi%20F%26F%2C%20I%27d%20like%20to%20know%20more%20about%20SEO." target="_blank" rel="noopener">Ask about this <span>&rarr;</span></a></div>
+      </details>
+      <details class="sv box rv" data-f="u">
+        <summary><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M3 9h18M7 13.5h6M7 16.5h4"/></svg></span><span class="sv-n">04</span><h3>Website Building</h3><p>Fast websites that turn visitors into calls.</p><span class="sv-more">What's included<i></i></span></summary>
+        <div class="sv-body"><ul><li>Mobile-first design</li><li>WhatsApp and call buttons built in</li><li>Domain and launch handled</li></ul><a class="sv-cta" href="https://wa.me/917086269537?text=Hi%20F%26F%2C%20I%27d%20like%20to%20know%20more%20about%20Website%20Building." target="_blank" rel="noopener">Ask about this <span>&rarr;</span></a></div>
+      </details>
+      <details class="sv box rv" data-f="u">
+        <summary><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="7.5" height="7.5" rx="1.5"/><circle cx="16.75" cy="16.75" r="3.75"/><path d="M16.75 3.5l4 7h-8z"/><path d="M3.5 17h7.5"/></svg></span><span class="sv-n">05</span><h3>Graphic Design</h3><p>Creatives that make you look like one brand.</p><span class="sv-more">What's included<i></i></span></summary>
+        <div class="sv-body"><ul><li>Social creatives and posters</li><li>Brochures, banners and print</li><li>A consistent brand kit</li></ul><a class="sv-cta" href="https://wa.me/917086269537?text=Hi%20F%26F%2C%20I%27d%20like%20to%20know%20more%20about%20Graphic%20Design." target="_blank" rel="noopener">Ask about this <span>&rarr;</span></a></div>
+      </details>
+      <details class="sv box rv" data-f="u">
+        <summary><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></svg></span><span class="sv-n">06</span><h3>Marketing Advisory &amp; Consultancy</h3><p>A clear plan for where to spend and what to say.</p><span class="sv-more">What's included<i></i></span></summary>
+        <div class="sv-body"><ul><li>Audit of what you are doing now</li><li>Budget and channel plan</li><li>Monthly strategy call</li></ul><a class="sv-cta" href="https://wa.me/917086269537?text=Hi%20F%26F%2C%20I%27d%20like%20to%20know%20more%20about%20Marketing%20Advisory%20%26%20Consultancy." target="_blank" rel="noopener">Ask about this <span>&rarr;</span></a></div>
+      </details>
     </div>
   </div>
 </section>
@@ -700,7 +792,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--blue);outline-offse
   <div class="wrap">
     <span class="tag rv" data-f="l">How it runs</span>
     <h2 class="rv" data-f="l" data-d="1" style="font-size:clamp(31px,5.2vw,84px);max-width:15ch">Three steps. Only one is yours.</h2>
-    <div class="steps grid-3">
+    <div class="steps grid-3" id="steps"><span class="tl-line" aria-hidden="true"><i></i></span>
       <div class="step box rv" data-f="u"><b>01</b><h3>Your people film</h3><p>We write it, direct it, and tell them exactly what to shoot.</p></div>
       <div class="step box rv" data-f="u" data-d="1"><b>02</b><h3>We do the rest</h3><p>Edit, publish, target, optimise. You approve, we run it.</p></div>
       <div class="step box rv" data-f="u" data-d="2"><b>03</b><h3>Enquiries reach you</h3><p>Straight to your WhatsApp. Then a report at month end.</p></div>
@@ -748,9 +840,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--blue);outline-offse
     <div class="fig rv" data-f="l" data-d="1"><b>&#8377;25,000</b><span>a month</span></div>
     <p class="fig-p rv" data-f="l" data-d="2">That is where most of our clients sit. What you pay depends on how much filming you need and how far your customers travel, so we work out your figure on the call, before you commit to anything.</p>
     <div class="cost-l grid-3">
-      <div class="box rv" data-f="u"><b>Billed monthly</b> No long contract, no lock-in.</div>
-      <div class="box rv" data-f="u" data-d="1"><b>Ad spend reported in full</b> You see what went out and what it brought back.</div>
-      <div class="box rv" data-f="u" data-d="2"><b>No inflated promises</b> No agency honestly can.</div>
+      <div class="box rv" data-f="u"><span class="chk" aria-hidden="true"></span><b>Billed monthly</b> No long contract, no lock-in.</div>
+      <div class="box rv" data-f="u" data-d="1"><span class="chk" aria-hidden="true"></span><b>Ad spend reported in full</b> You see what went out and what it brought back.</div>
+      <div class="box rv" data-f="u" data-d="2"><span class="chk" aria-hidden="true"></span><b>No inflated promises</b> No agency honestly can.</div>
     </div>
     <div class="ct-act rv" data-f="u"><a class="btn b-solid" href="https://wa.me/917086269537?text=Hi%20F%26F%2C%20I%27d%20like%20to%20talk%20about%20marketing%20my%20business." target="_blank" rel="noopener">Get your figure on WhatsApp</a></div>
 
@@ -850,6 +942,30 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--blue);outline-offse
     park();
   }
 
+
+  // stagger cards
+  ['.facts','.svs','.steps','.cost-l','.ct-l','.trust-g'].forEach(function(g){
+    var c=document.querySelectorAll(g+' > .box, '+g+' > .tc'); for(var i=0;i<c.length;i++){ c[i].style.setProperty('--sd',(i*0.09)+'s'); }
+  });
+  // spotlight + ripple
+  document.querySelectorAll('.box').forEach(function(b){
+    b.addEventListener('pointermove',function(e){var r=b.getBoundingClientRect();b.style.setProperty('--mx',(e.clientX-r.left)+'px');b.style.setProperty('--my',(e.clientY-r.top)+'px');});
+    b.addEventListener('pointerdown',function(e){
+      if(reduce) return; var r=b.getBoundingClientRect();
+      b.style.setProperty('--mx',(e.clientX-r.left)+'px');b.style.setProperty('--my',(e.clientY-r.top)+'px');
+      b.classList.add('lit'); setTimeout(function(){b.classList.remove('lit');},600);
+      var d=document.createElement('span');d.className='rip';d.style.left=(e.clientX-r.left)+'px';d.style.top=(e.clientY-r.top)+'px';
+      b.appendChild(d); setTimeout(function(){d.remove();},750);
+    });
+  });
+  // one service open at a time
+  var svs=document.querySelectorAll('.sv');
+  svs.forEach(function(d){ d.addEventListener('toggle',function(){ if(d.open){ svs.forEach(function(o){ if(o!==d) o.open=false; }); } }); });
+  // timeline fill
+  var st=document.getElementById('steps');
+  function tl(){ if(!st) return; var r=st.getBoundingClientRect(), v=innerHeight;
+    var p=Math.min(1,Math.max(0,(v*0.85-r.top)/(r.height*0.9))); st.style.setProperty('--p',reduce?1:p.toFixed(3)); }
+  addEventListener('scroll',function(){requestAnimationFrame(tl);},{passive:true}); tl();
   var cap=document.getElementById('cap');
   var caps=['Meet the teachers behind the results.','Back pain? Walk in, walk out.','Test drive it this Sunday.'];
   if(cap && !reduce){
